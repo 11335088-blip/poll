@@ -1,4 +1,10 @@
 from django.urls import path
+from.views import poll_list,polllist,PollView,PollVote
+
+
 urlpatterns = [
-    
+     path('', poll_list),
+     path('list',polllist.as_view(),name='poll_list'),
+     path('<int:pk>/',PollView.as_view(),name='poll_view'),
+     path('<int:oid>/vote/',PollVote.as_view(),name='poll_vote'),
 ]
