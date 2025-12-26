@@ -58,7 +58,7 @@ class optioncreate(CreateView):
 
 class optionedit(UpdateView):
     model = option
-    foelds = ['title']
+    fields = ['title']
     pk_url_kwarg = 'oid'
 
     def get_success_url(self):
