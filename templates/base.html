@@ -6,11 +6,19 @@
     <title>{% block title %}document{% endblock %}</title>
 </head>
 <body>
+    <div class="container">
+        <div>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'login' %}">登入</a>
+            {% else %}
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="登出">
+            </form>
+            {% endif %}
+        </div>
     {% block main %}{% endblock %}
-
-    <footer style="margin-top: 20px">
-        20607葉毓庭
-    </footer>
-
+    <div>20607葉毓庭</div>
+    </div>
 </body>
 </html>
